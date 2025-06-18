@@ -1,6 +1,7 @@
 'use client'
 
 import { Trophy, Target, TrendingUp, Users, Calendar } from 'lucide-react'
+import { Logo } from '@/components/Logo'
 
 export default function PlayerDashboard() {
   return (
@@ -8,7 +9,8 @@ export default function PlayerDashboard() {
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl font-bold mb-2">Hey Tommy! ⚽</h1>
+          <Logo size="small" showText={false} />
+          <h1 className="text-2xl font-bold mb-2 mt-4">Hey Tommy! ⚽</h1>
           <p>Ready to become a champion?</p>
         </div>
       </div>

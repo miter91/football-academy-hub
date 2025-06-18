@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Calendar, Bell, Users, ChevronRight, Trophy, Globe, Video, MessageCircle } from 'lucide-react'
+import { Logo } from '@/components/Logo'
 
 export default function HomePage() {
   return (
@@ -7,15 +8,7 @@ export default function HomePage() {
       {/* Enhanced Nav */}
       <nav className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">⚽</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">Football Academy</h1>
-              <p className="text-xs text-orange-500 font-semibold">CODE HUB</p>
-            </div>
-          </div>
+          <Logo size="medium" />
           <div className="hidden md:flex items-center gap-6">
             <Link href="#about" className="text-gray-700 hover:text-orange-500">About</Link>
             <Link href="#programs" className="text-gray-700 hover:text-orange-500">Programs</Link>
@@ -71,7 +64,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-6 text-gray-900">
-                Welcome to Football Academy Code Hub
+                Welcome to Football Code Academy
               </h3>
               <p className="text-gray-600 mb-4">
                 We're revolutionizing youth football in Bali by combining professional 
@@ -166,7 +159,7 @@ export default function HomePage() {
       <section id="gallery" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">Life at Code Academy</h3>
+            <h3 className="text-3xl font-bold mb-4">Life at Football Code Academy</h3>
             <p className="text-gray-600">Follow our journey on social media</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -175,7 +168,7 @@ export default function HomePage() {
                 <span className="text-white text-6xl">📸</span>
               </div>
               <div className="p-4">
-                <p className="text-sm text-gray-600">@codeacademybali</p>
+                <p className="text-sm text-gray-600">@footballcodeacademy</p>
                 <p className="font-semibold mt-1">U12 team celebrates victory! 🏆</p>
               </div>
             </div>
@@ -184,7 +177,7 @@ export default function HomePage() {
                 <span className="text-white text-6xl">🎥</span>
               </div>
               <div className="p-4">
-                <p className="text-sm text-gray-600">@codeacademybali</p>
+                <p className="text-sm text-gray-600">@footballcodeacademy</p>
                 <p className="font-semibold mt-1">Skills training highlights ⚡</p>
               </div>
             </div>
@@ -193,7 +186,7 @@ export default function HomePage() {
                 <span className="text-white text-6xl">⚽</span>
               </div>
               <div className="p-4">
-                <p className="text-sm text-gray-600">@codeacademybali</p>
+                <p className="text-sm text-gray-600">@footballcodeacademy</p>
                 <p className="font-semibold mt-1">New season starts Monday!</p>
               </div>
             </div>
@@ -230,13 +223,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">⚽</span>
-                </div>
-                <span className="font-bold">Football Academy Code Hub</span>
-              </div>
-              <p className="text-gray-400 text-sm">
+              <Logo size="small" />
+              <p className="text-gray-400 text-sm mt-4">
                 Bali's first digital football academy
               </p>
             </div>
@@ -252,13 +240,13 @@ export default function HomePage() {
               <h4 className="font-semibold mb-3">Connect</h4>
               <p className="text-sm text-gray-400">
                 WhatsApp: +62 123 456 789<br />
-                Email: info@codeacademy.com<br />
+                Email: info@footballcodeacademy.com<br />
                 Location: Canggu, Bali
               </p>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            © 2024 Football Academy Code Hub. Empowering young footballers through technology.
+            © 2024 Football Code Academy. Empowering young footballers through technology.
           </div>
         </div>
       </footer>

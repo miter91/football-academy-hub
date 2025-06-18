@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { User, GraduationCap, Users } from 'lucide-react'
+import { Logo } from '@/components/Logo'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -32,11 +33,11 @@ export default function LoginPage() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center p-4">
       <div className="bg-white p-8 rounded-xl shadow-xl max-w-md w-full">
         <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-white text-3xl">⚽</span>
+          <div className="flex justify-center mb-4">
+            <Logo size="large" showText={false} />
           </div>
           <h2 className="text-2xl font-bold">Welcome Back</h2>
-          <p className="text-gray-600">Football Academy Code Hub</p>
+          <p className="text-gray-600">Football Code Academy</p>
         </div>
 
         {/* Role Selection */}

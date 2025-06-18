@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Check, X, Clock, Users, Calendar, TrendingUp, Bell } from 'lucide-react'
+import { Logo } from '@/components/Logo'
 
 export default function CoachDashboard() {
   const [attendance, setAttendance] = useState<Record<string, string>>({})
@@ -27,15 +28,7 @@ export default function CoachDashboard() {
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold">⚽</span>
-            </div>
-            <div>
-              <h1 className="font-bold text-lg">Coach Dashboard</h1>
-              <p className="text-xs text-orange-500">Football Academy Code Hub</p>
-            </div>
-          </div>
+          <Logo size="small" />
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-600">Coach Martinez</span>
             <div className="relative">

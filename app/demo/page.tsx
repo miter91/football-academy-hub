@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Bell, Calendar, Users, Home, X } from 'lucide-react'
+import { Logo } from '@/components/Logo'
 
 export default function DemoPage() {
   const [showNotification, setShowNotification] = useState(false)
@@ -14,7 +15,7 @@ export default function DemoPage() {
       {/* Top Bar */}
       <div className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <h1 className="font-bold text-lg">Parent Portal</h1>
+          <Logo size="small" />
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-600">Welcome, Sarah Johnson</span>
             <Bell className="text-gray-600" size={20} />
