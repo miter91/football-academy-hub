@@ -39,7 +39,7 @@ export default function ParentDashboard() {
         <WhatsAppNotification 
           message="Training tomorrow moved to 4 PM due to weather. Tap to confirm."
           type="schedule_change"
-          phoneNumber="++447802773950" // Replace with your test number
+          phoneNumber="+62XXXXXXXXXX" // Replace with your test number
           autoSend={false}
         />
       )}
@@ -49,7 +49,7 @@ export default function ParentDashboard() {
         <WhatsAppNotification 
           message="⚽ Schedule Update: Today's training moved to 5:00 PM - 6:30 PM at Indoor Court"
           type="schedule_change"
-          phoneNumber="+6281234567890" // Replace with your test number
+          phoneNumber="+62XXXXXXXXXX" // Replace with your test number
           autoSend={false} // Set to true for auto-send
         />
       )}

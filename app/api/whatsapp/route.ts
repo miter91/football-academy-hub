@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server';
 import twilio from 'twilio';
 
 // For demo/development - use Twilio sandbox credentials
-const accountSid = process.env.TWILIO_ACCOUNT_SID || 'ACd6cccb02eb79b840ae67f986c4c7de2e';
-const authToken = process.env.TWILIO_AUTH_TOKEN || '6aa99cb87ef09d7858ef42930ddafd9d';
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = twilio(accountSid, authToken);
 
 // Twilio Sandbox WhatsApp number (for testing)
-const TWILIO_WHATSAPP_NUMBER = 'whatsapp:+14155238886'; // Twilio's sandbox number
+const TWILIO_WHATSAPP_NUMBER = 'whatsapp:+XXXXXXXXXX'; // Twilio's sandbox number
 
 
 export async function POST(request: Request) {
