@@ -5,6 +5,7 @@ import { Bell, Calendar, Users, Home, Trophy, MessageCircle, Video } from 'lucid
 import WhatsAppNotification from '@/components/WhatsAppNotification'
 import { MediaGallery } from '@/components/MediaGallery'
 import { LiveScheduleUpdate } from '@/components/LiveScheduleUpdate'
+import { config } from '@/lib/config'
 
 export default function ParentDashboard() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -39,7 +40,7 @@ export default function ParentDashboard() {
         <WhatsAppNotification 
           message="Training tomorrow moved to 4 PM due to weather. Tap to confirm."
           type="schedule_change"
-          phoneNumber="+62XXXXXXXXXX" // Replace with your test number
+          phoneNumber={config.whatsapp.demoPhoneNumber}
           autoSend={false}
         />
       )}
@@ -49,8 +50,8 @@ export default function ParentDashboard() {
         <WhatsAppNotification 
           message="⚽ Schedule Update: Today's training moved to 5:00 PM - 6:30 PM at Indoor Court"
           type="schedule_change"
-          phoneNumber="+62XXXXXXXXXX" // Replace with your test number
-          autoSend={false} // Set to true for auto-send
+          phoneNumber={config.whatsapp.demoPhoneNumber}
+          autoSend={false}
         />
       )}
 
