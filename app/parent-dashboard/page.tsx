@@ -1,21 +1,58 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Bell, Calendar, Users, Home, Trophy, MessageCircle, Video } from 'lucide-react'
-import { WhatsAppNotification } from '@/components/WhatsAppNotification'
+import WhatsAppNotification from '@/components/WhatsAppNotification'
 import { MediaGallery } from '@/components/MediaGallery'
 import { LiveScheduleUpdate } from '@/components/LiveScheduleUpdate'
 
 export default function ParentDashboard() {
   const [activeTab, setActiveTab] = useState('overview')
+  const [showScheduleWhatsApp, setShowScheduleWhatsApp] = useState(false)
+  const [showInitialWhatsApp, setShowInitialWhatsApp] = useState(false)
+
+  // Show initial WhatsApp notification after 2 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowInitialWhatsApp(true)
+    }, 2000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Show schedule change WhatsApp when on schedule tab
+  useEffect(() => {
+    if (activeTab === 'schedule') {
+      // Reset the state when switching to schedule tab
+      setShowScheduleWhatsApp(false)
+      // Show WhatsApp notification after 5 seconds (matching LiveScheduleUpdate timing)
+      const timer = setTimeout(() => {
+        setShowScheduleWhatsApp(true)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [activeTab])
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* WhatsApp Notification */}
-      <WhatsAppNotification 
-        message="Training tomorrow moved to 4 PM due to weather. Tap to confirm."
-        delay={2000}
-      />
+      {/* Initial WhatsApp Notification */}
+      {showInitialWhatsApp && (
+        <WhatsAppNotification 
+          message="Training tomorrow moved to 4 PM due to weather. Tap to confirm."
+          type="schedule_change"
+          phoneNumber="++447802773950" // Replace with your test number
+          autoSend={false}
+        />
+      )}
+
+      {/* Schedule Change WhatsApp Notification */}
+      {activeTab === 'schedule' && showScheduleWhatsApp && (
+        <WhatsAppNotification 
+          message="⚽ Schedule Update: Today's training moved to 5:00 PM - 6:30 PM at Indoor Court"
+          type="schedule_change"
+          phoneNumber="+6281234567890" // Replace with your test number
+          autoSend={false} // Set to true for auto-send
+        />
+      )}
 
       {/* Top Bar */}
       <div className="bg-white shadow-sm">
@@ -120,7 +157,20 @@ export default function ParentDashboard() {
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="font-bold mb-4">Quick Actions</h3>
               <div className="space-y-2">
-                <button className="w-full text-left p-3 bg-orange-50 text-orange-700 rounded-lg hover:bg-orange-100 transition-colors flex items-center gap-2">
+                <button 
+                  className="w-full text-left p-3 bg-orange-50 text-orange-700 rounded-lg hover:bg-orange-100 transition-colors flex items-center gap-2"
+                  onClick={() => {
+                    // Demo: Send WhatsApp for booking
+                    const notification = document.createElement('div')
+                    notification.innerHTML = `
+                      <div style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 16px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 9999;">
+                        <p style="margin: 0;">Booking request sent! Coach will confirm via WhatsApp.</p>
+                      </div>
+                    `
+                    document.body.appendChild(notification)
+                    setTimeout(() => notification.remove(), 3000)
+                  }}
+                >
                   <Calendar size={18} />
                   Book 1-on-1 Training
                 </button>
